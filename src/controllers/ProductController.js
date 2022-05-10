@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const Product = mongoose.model("Product");
+const Product = mongoose.model('Product');
 
 module.exports = {
   async index(req, res) {
@@ -24,7 +24,7 @@ module.exports = {
 
   async update(req, res) {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
+      new: true,
     });
 
     return res.json(product);
@@ -34,5 +34,5 @@ module.exports = {
     await Product.findByIdAndRemove(req.params.id);
 
     return res.send();
-  }
+  },
 };
